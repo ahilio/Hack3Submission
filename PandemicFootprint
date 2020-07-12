@@ -1,0 +1,109 @@
+import java.util.Scanner;
+
+public class PandemicFootprint {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a;
+        int b;
+        int c;
+        int d;
+        while(true) {
+            System.out.println("With how many people are you in daily, face to face contact?");
+            System.out.println("1: None");
+            System.out.println("2: One person");
+            System.out.println("3: Two-Five people");
+            System.out.println("4: Six-Ten people");
+            System.out.println("5: Eleven-Twenty Five people");
+            System.out.println("6: Over Twenty Five people");
+        	
+            
+            try {
+            	a = scan.nextInt();
+            }
+            catch (Exception e)
+            {
+            	System.out.println("Enter a valid number: ");
+            	continue;
+            }
+            break;
+        }
+
+        while(true) {
+	        System.out.println("How consistently do you pursue the pandemic hygiene recommendations?");
+	        System.out.println("This includes washing hands for at least twenty seconds, avoiding touching the face area, and covering " +
+	                "coughs with a tissue or elbow");
+	        System.out.println("1: Very consistently, after every human interaction");
+	        System.out.println("2: Fairly consistently");
+	        System.out.println("3: Sometimes, but not consistently");
+	        System.out.println("4: Not often");
+	        System.out.println("5: Rarely");
+	        System.out.println("6: Not at all");
+	        
+	        try {
+            	b = scan.nextInt();
+            }
+            catch (Exception e)
+            {
+            	System.out.println("Enter a valid number: ");
+            	continue;
+            }
+            break;
+        }
+
+        while(true) {
+	        System.out.println("Have you been to a COVID risk area (countries that have a level 3 health notice). This includes Italy, Iran, etc. " +
+	                "For a full list visit cdc.gov");
+	        System.out.println("1: Not at all");
+	        System.out.println("2: I have for 1 day");
+	        System.out.println("3: I have for 2-3 days");
+	        System.out.println("4: I have for up to a week");
+	        System.out.println("5: I have for up to a month");
+	        System.out.println("6: I live in a risk area or have stayed there for over a month");
+	        
+	        try {
+	        	c = scan.nextInt();
+	        }
+	        catch (Exception e)
+	        {
+	        	System.out.println("Enter a valid number: ");
+	        	continue;
+	        }
+	        break;
+        }
+
+        while(true) {
+	        System.out.println("Are you in direct contact with risk groups (Adults of age 50+, people with serious chronic medical conditions)");
+	        System.out.println("1: Not at all");
+	        System.out.println("2: Once a month");
+	        System.out.println("3: Once a week");
+	        System.out.println("4: Two-Three times a week");
+	        System.out.println("5: Daily");
+	        System.out.println("6: I am in contact with multiple people of a risk group daily");
+	
+	        try {
+	        	d = scan.nextInt();
+	        }
+	        catch (Exception e)
+	        {
+	        	System.out.println("Enter a valid number: ");
+	        	continue;
+	        }
+	        break;
+        }
+
+        int footprint = (int)(8.4*(Math.sqrt(Math.pow(a,2)+Math.pow(b,2)+Math.pow(c,2)+Math.pow(d,2))));
+
+        System.out.println("Your pandemic footprint is " + footprint + "/100");
+        if(footprint>70)
+            System.out.println("You have a higher pandemic footprint than the average person. Consider limiting the amount of people you are in contact with and make sure to follow pandemic " +
+                    "health recommendations. It is important to stay safe and help the community!\n" +
+                    "Also consider getting tested for COVID, you have been exposed to many people!");
+        else if(footprint>40)
+            System.out.println("You have an average pandemic footprint. Good effort! Consider limiting the amount of people you are in contact with and make sure to follow pandemic " +
+                    "health recommendations to reduce your footprint. It is important to stay safe and help the community!");
+        else
+            System.out.println("Your pandemic footprint is low compared to the average person. Keep social distancing and encourage " +
+                    "others to do so too!");
+
+    }
+}
